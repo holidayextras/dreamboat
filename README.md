@@ -31,7 +31,7 @@ post_route = route to post to (default: /post)
 
 msg_per_sec = number of heartbeat messages to send per second (default: 2)
 
-field = field of json (default: _heartbeat_)
+field = field of json (default: \_heartbeat\_)
 
 value = value of json (default: yes)
 
