@@ -22,10 +22,17 @@ gcloud container clusters create dreamboat-container --num-nodes 1 --machine-typ
 kubectl run dreamboat-container --image=gcr.io/hx-test/dreamboat-initial --env="your_variable=your_value"
 
 Possible configurable env variables:
+
 address = address to post to (default: 127.0.0.1)
+
 port = port to post to (default: 8080)
+
 post_route = route to post to (default: /post)
+
 msg_per_sec = number of heartbeat messages to send per second (default: 2)
+
 field = field of json (default: _heartbeat_)
+
 value = value of json (default: yes)
+
 log_level = log level (default: DEBUG)
