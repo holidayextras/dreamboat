@@ -37,7 +37,7 @@ def give_life(source_url, data, DELAY, log_level):
             if (rsp_code == 200):
                 logger.info('Status from {0}: {1}'.format(source_url, rsp_code))
             else:
-                logger.info('Status from {0}: {1}'.format(source_url, rsp_code))
+                logger.error('Status from {0}: {1}'.format(source_url, rsp_code))
             c.close()
             time.sleep(DELAY)
         except Exception as e:
