@@ -3,7 +3,7 @@ import json
 import time
 import logging
 import ConfigParser
-import thread
+import threading
 
 CONFIG_FILE = 'config'
 
@@ -29,7 +29,7 @@ def give_life(source_url, data, DELAY, log_level):
         try:
             c = pycurl.Curl()
             c.setopt(pycurl.URL, source_url)
-            c.setopt(pycurl.HTTPHEADER, ['Content-Type: application/json'])
+            c.setopt(pycurl.HTTPHEADER, ['Content-Type: application/json','X-22acaia-heartbeat: true'])
             c.setopt(pycurl.POST, 1)
             c.setopt(pycurl.POSTFIELDS, data)
             c.perform()
@@ -79,12 +79,17 @@ def main():
     data = json.dumps({FIELD: VALUE})
 
     # ~~~ create and spawn threads ~~~
+    threads = []
     for ep in endpoints:
         logger.info('Creating pulse on {0}'.format(ep))
-        thread.start_new_thread(give_life, (ep, data, DELAY, LOG_LEVEL))
-        
-    while True:
-        pass
+        t = threading.Thread(target=give_life, args=(ep, data, DELAY, LOG_LEVEL))
+        t.start()
+        threads.append(t)
+
+    for t in threads:
+        t.join()
+
+    logger.error('Opps one of the threads failed')
 
 if __name__ == '__main__':
     main()
