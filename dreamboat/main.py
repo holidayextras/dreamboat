@@ -83,11 +83,17 @@ def main():
     for ep in endpoints:
         logger.info('Creating pulse on {0}'.format(ep))
         t = threading.Thread(target=give_life, args=(ep, data, DELAY, LOG_LEVEL))
+        t.daemon=True
         t.start()
         threads.append(t)
 
-    for t in threads:
-        t.join()
+    allrunning = True
+    while allrunning:
+        for t in threads:
+            t.join(5)
+            if not t.isAlive():
+                allrunning = False
+                break
 
     logger.error('Opps one of the threads failed')
 
