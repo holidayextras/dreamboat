@@ -27,7 +27,7 @@ endpoint = comma separated list of endpoints (default: 127.0.0.1:8080/post)
 
 msg_per_sec = number of heartbeat messages to send per second (default: 2)
 
-field = field of json (default: _heartbeat_)
+field = field of json (default: \_heartbeat\_)
 
 value = value of json (default: yes)
 
