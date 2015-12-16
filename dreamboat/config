@@ -1,0 +1,9 @@
+[DEFAULT]
+address = 127.0.0.1
+port = 8080
+post_route = /post
+msg_per_sec = 2
+field = _heartbeat_
+value = yes
+log_level = DEBUG
+[override]
