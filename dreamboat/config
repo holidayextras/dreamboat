@@ -1,0 +1,7 @@
+[DEFAULT]
+endpoint = 127.0.0.1:8080/post
+msg_per_sec = 2
+field = _heartbeat_
+value = yes
+log_level = DEBUG
+[override]
