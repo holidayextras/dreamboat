@@ -7,8 +7,8 @@ test:
     - echo 'I promise, tests will occur!'
 
 deployment:
-  builddev:
-    branch: circle-ci
+  production:
+    branch: master
     commands:
       - cd $HOME/$CIRCLE_PROJECT_REPONAME && echo $GOOGLE_CREDENTIALS > account.json
       - cd $HOME/$CIRCLE_PROJECT_REPONAME && sudo ./build_and_push_docker_image.sh
