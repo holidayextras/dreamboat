@@ -32,3 +32,7 @@ field = field of json (default: \_heartbeat\_)
 value = value of json (default: yes)
 
 log_level = log level (default: DEBUG)
+
+By default, the message written by the heartbeat is:
+
+{"\_heartbeat\_","yes"}, however this is customizable using the 'field' and 'value' parameters above.
