@@ -10,7 +10,7 @@ if [ $ret_var -ne 0 ]; then
 fi
 
 if [ $ret_var -eq 0 ]; then
-  echo "Build base image"
+  echo "Build base image "
   cd $HOME/headspring
   sudo docker build -t acacia acacia/
   ret_var=$?
