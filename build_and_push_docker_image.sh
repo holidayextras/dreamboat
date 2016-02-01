@@ -8,4 +8,4 @@ if [ $ret_var -ne 0 ]; then
 fi
 
 #  push the application image to gcr
-/opt/google-cloud-sdk/bin/gcloud docker push gcr.io/hx-test/dreamboat-multi 
+/opt/google-cloud-sdk/bin/gcloud docker push gcr.io/${GOOGLE_PROJECT}/dreamboat-multi 
