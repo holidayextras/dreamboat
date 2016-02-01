@@ -19,7 +19,7 @@ fi
 if [ $ret_var -eq 0 ]; then
   echo "Build yellow submarine image"
   cd $HOME/$CIRCLE_PROJECT_REPONAME/
-  sudo docker build -t gcr.io/hx-test/dreamboat-multi .
+  sudo docker build -t gcr.io/$GOOGLE_PROJECT/dreamboat-multi .
   ret_var=$?
 fi
  
